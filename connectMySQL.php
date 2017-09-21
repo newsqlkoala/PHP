@@ -18,21 +18,29 @@
             die("link error!!!".$dbLink->connect_error);
             //die("link error!!!".mysqli_connect_error());  //程序導向.效果同
         } else {
-            echo "<br>link success<br>!!!!";
+            echo "<br>link success!!!!";
         }
 
+        //新增
+        $sql = "INSERT INTO students VALUES('James', 'F', 'Orchid island')";
+
+        if ($dbLink->query($sql))   echo "add OK";
+        else                        echo "add NG".$sql."<br>".$dbLink->error;
+
+        //讀取
         $sql = "SELECT * FROM students";
         $result = $dbLink->query($sql);
 
         var_dump($result);  // 網頁上列出物件
-
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_array()) {
-                echo "Name: ".$row["name"]."<br> Gender: ".$row["gender"]."<br> Addr: ".$row["addr"];
+                echo "<br>Name: ".$row["name"]." Gender: ".$row["gender"]." Addr: ".$row["addr"];
             }
         } else {
             echo "no data !!";
         }
+
+        $dbLink->close();  // 關閉資料庫
     ?>
 
 </body>
