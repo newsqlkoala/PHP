@@ -6,6 +6,11 @@
 </head>
 <body>
 <h1>hello world php</h1>
+<?php
+    echo "this is PHP echo"
+
+?>
+
 
 
 
