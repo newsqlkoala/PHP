@@ -31,7 +31,7 @@
                 echo "Name: ".$row["name"]."<br> Gender: ".$row["gender"]."<br> Addr: ".$row["addr"];
             }
         } else {
-            echo "no data";
+            echo "no data !!";
         }
     ?>
 
