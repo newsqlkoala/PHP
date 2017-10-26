@@ -16,7 +16,14 @@
 class Animal {
     private $animalType;
     protected $position;
+    function __construct($n) {
+        $this->animalType = $n;
+    }
+
     protected function move($x,$y){}
+    protected function getType() {
+        echo "type = $this->animalType<br>";
+    }
 }
 
 class Cat extends Animal
@@ -25,6 +32,7 @@ class Cat extends Animal
    //private $position;
     function __construct($n)
     {
+        parent::__construct("little cat");
         $this->name = $n;
         $this->position = ["x"=>0, "y"=>0];
     }
@@ -33,6 +41,7 @@ class Cat extends Animal
         $this->position["y"] += $dy;
         $outx =  $this->position["x"] ;
         $outy =  $this->position["y"] ;
+        $this->getType();
         echo "$this->name :  $outx, $outy<br>";
     }
 }
